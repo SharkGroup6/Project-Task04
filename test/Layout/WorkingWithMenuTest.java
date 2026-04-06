@@ -15,6 +15,7 @@ class WorkingWithMenuTest {
 
     @BeforeEach
     void setUp() {
+        
         assertDoesNotThrow(() -> window = new WorkingWithMenu());
     }
 
