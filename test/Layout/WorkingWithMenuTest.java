@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumeFalse;
 
 class WorkingWithMenuTest {
 
@@ -15,7 +16,9 @@ class WorkingWithMenuTest {
 
     @BeforeEach
     void setUp() {
-        
+        // Skip GUI tests if running in headless environment (Jenkins)
+        assumeFalse(GraphicsEnvironment.isHeadless(), "Skipping GUI tests in headless environment");
+
         assertDoesNotThrow(() -> window = new WorkingWithMenu());
     }
 
