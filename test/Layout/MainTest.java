@@ -15,6 +15,8 @@ class MainTest {
 
     @BeforeEach
     void setUp() {
+        // Skip GUI tests if running in headless environment (Jenkins)
+        assumeFalse(GraphicsEnvironment.isHeadless(), "Skipping GUI tests in headless environment");
 
         frame = new WorkingWithMenu();
     }
