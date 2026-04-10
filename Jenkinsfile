@@ -9,17 +9,26 @@ pipeline {
             }
         }
 
+        stage('Check Java Version') {
+            steps {
+                echo '🔍 Checking Java version being used...'
+                bat 'java -version'
+            }
+        }
+
         stage('Compile Code') {
             steps {
-                echo '🔨 Compiling Java code with Maven...'
-                bat 'mvn clean compile'
+                echo '🔨 Compiling Java code with Maven using Java 22...'
+                // IMPORTANT: Replace this path with YOUR Java 22 path from Step 4
+                bat 'C:\Program Files\Java\jdk-21\bin\java.exe && mvn clean compile'
             }
         }
 
         stage('Run Unit Tests') {
             steps {
-                echo '🧪 Running JUnit tests...'
-                bat 'mvn test'
+                echo '🧪 Running JUnit tests with Java 22...'
+                // IMPORTANT: Replace this path with YOUR Java 22 path from Step 4
+                bat 'C:\Program Files\Java\jdk-21\bin\java.exe && mvn test'
             }
             post {
                 always {
