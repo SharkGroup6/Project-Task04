@@ -1,10 +1,7 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'Maven-3.9.14'
-        jdk 'JDK'
-    }
+    // Remove the entire "tools" block - Jenkins will use system defaults
 
     stages {
         stage('Checkout Code') {
