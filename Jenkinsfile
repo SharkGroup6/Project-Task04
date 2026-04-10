@@ -9,26 +9,26 @@ pipeline {
             }
         }
 
-        stage('Check Java Version') {
+        stage('Set Java 21 and Compile') {
             steps {
-                echo '🔍 Checking Java version being used...'
-                bat 'java -version'
-            }
-        }
-
-        stage('Compile Code') {
-            steps {
-                echo '🔨 Compiling Java code with Maven using Java 22...'
-                // IMPORTANT: Replace this path with YOUR Java 22 path from Step 4
-                bat 'C:\Program Files\Java\jdk-21\bin\java.exe && mvn clean compile'
+                echo '🔨 Setting JAVA_HOME to Java 21 and compiling...'
+                bat '''
+                    set JAVA_HOME=C:\\Program Files\\Java\\jdk-21
+                    set PATH=%JAVA_HOME%\\bin;%PATH%
+                    java -version
+                    mvn clean compile
+                '''
             }
         }
 
         stage('Run Unit Tests') {
             steps {
-                echo '🧪 Running JUnit tests with Java 22...'
-                // IMPORTANT: Replace this path with YOUR Java 22 path from Step 4
-                bat 'C:\Program Files\Java\jdk-21\bin\java.exe && mvn test'
+                echo '🧪 Running JUnit tests with Java 21...'
+                bat '''
+                    set JAVA_HOME=C:\\Program Files\\Java\\jdk-21
+                    set PATH=%JAVA_HOME%\\bin;%PATH%
+                    mvn test
+                '''
             }
             post {
                 always {
