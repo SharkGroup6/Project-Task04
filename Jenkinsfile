@@ -13,7 +13,7 @@ pipeline {
             steps {
                 echo '🔨 Setting JAVA_HOME to Java 21 and compiling...'
                 bat '''
-                    set JAVA_HOME=C:\\Program Files\\Java\\jdk-21
+                    set JAVA_HOME=C:\Program Files\Java\jdk-22.0.2
                     set PATH=%JAVA_HOME%\\bin;%PATH%
                     java -version
                     mvn clean compile
@@ -25,7 +25,7 @@ pipeline {
             steps {
                 echo '🧪 Running JUnit tests with Java 21...'
                 bat '''
-                    set JAVA_HOME=C:\\Program Files\\Java\\jdk-21
+                    set JAVA_HOME=C:\Program Files\Java\jdk-22.0.2
                     set PATH=%JAVA_HOME%\\bin;%PATH%
                     mvn test
                 '''
