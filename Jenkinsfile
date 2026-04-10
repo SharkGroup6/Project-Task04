@@ -9,11 +9,11 @@ pipeline {
             }
         }
 
-        stage('Set Java 21 and Compile') {
+        stage('Set Java 22 and Compile') {
             steps {
-                echo '🔨 Setting JAVA_HOME to Java 21 and compiling...'
+                echo '🔨 Setting JAVA_HOME to Java 22 and compiling...'
                 bat '''
-                    set JAVA_HOME=C:\Program Files\Java\jdk-22.0.2
+                    set JAVA_HOME=C:\\Program Files\\Java\\jdk-22.0.2
                     set PATH=%JAVA_HOME%\\bin;%PATH%
                     java -version
                     mvn clean compile
@@ -23,9 +23,9 @@ pipeline {
 
         stage('Run Unit Tests') {
             steps {
-                echo '🧪 Running JUnit tests with Java 21...'
+                echo '🧪 Running JUnit tests with Java 22...'
                 bat '''
-                    set JAVA_HOME=C:\Program Files\Java\jdk-22.0.2
+                    set JAVA_HOME=C:\\Program Files\\Java\\jdk-22.0.2
                     set PATH=%JAVA_HOME%\\bin;%PATH%
                     mvn test
                 '''
