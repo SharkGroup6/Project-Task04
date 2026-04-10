@@ -1,8 +1,6 @@
 pipeline {
     agent any
 
-    // Remove the entire "tools" block - Jenkins will use system defaults
-
     stages {
         stage('Checkout Code') {
             steps {
@@ -14,14 +12,14 @@ pipeline {
         stage('Compile Code') {
             steps {
                 echo '🔨 Compiling Java code with Maven...'
-                sh 'mvn clean compile'
+                bat 'mvn clean compile'
             }
         }
 
         stage('Run Unit Tests') {
             steps {
                 echo '🧪 Running JUnit tests...'
-                sh 'mvn test'
+                bat 'mvn test'
             }
             post {
                 always {
